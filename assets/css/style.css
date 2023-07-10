@@ -30,6 +30,7 @@ section {
     padding: 10px;
     font-size: 25px;
 }
+/* Intro Screen */
 
 .intro {
     color:#fff;
@@ -54,6 +55,7 @@ section {
     font-size: 20px;
     background-color: rgb(45, 117, 96);
     border-radius: 20px;
+    cursor: pointer;
    
 }
 
@@ -74,4 +76,18 @@ section {
     justify-content: space-around;
     align-items: center;
     column-gap: 5px;
+}
+
+.player-hand {
+    transform: rotateY(180deg)
+}
+
+div.fadeOut {
+    opacity: 0;
+    pointer-events: none;
+}
+
+div.fadeIn {
+    opacity: 1;
+    pointer-events: all;
 }
