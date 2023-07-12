@@ -18,7 +18,7 @@ const game = () => {
         const options = document.querySelectorAll('.options button');
         const playerHand = document.querySelector('player-hand');
         const computerHand = document.querySelector('computer-hand');
-    
+        
         // Computer Options
         const computerOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
         /* array numbers:           0       1        2            3        4 */
@@ -27,15 +27,25 @@ const game = () => {
             option.addEventListener("click", function () {
                 const computerNumber = Math.floor(Math.random() * 5);
                 const computerChoice = computerOptions[computerNumber];
-                console.log(computerChoice);
+                //Compare Hands function
+                compareHands(option.textContent, computerChoice);
+                // Update Images
+                playerHand.src = `./assets/${this.textContent}.png`;
+                computerHand.src = `./assets/${computerChoice}.png`;
+              });
             });
-         });
-     };
-    
+          };
+          
+          
+            // Output the choices
+            console.log('Player Choice:', playerChoice);
+            console.log('Computer Choice:', computerChoice)
+        
+     }
      //Update text for Match result
      const winner = document.querySelector(".winner");
      // Checking for a draw
-     if(playerChoice === computerChoice){
+       if(playerChoice === computerChoice){
         winner.textContent="It's a Draw!"
         return;
      }
@@ -126,7 +136,7 @@ const game = () => {
     /* Will call inner functions */
     startGame();
     playMatch();
-};
+
 //Game function
 game();
 
