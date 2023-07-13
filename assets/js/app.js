@@ -1,4 +1,8 @@
 const game = () => {
+  let pScore = 0;
+  let cScore = 0;
+  console.log(pScore);
+  console.log(cScore);
     // Start the game
     function startGame() {
     const playBtn = document.querySelector('.intro button');
@@ -36,9 +40,11 @@ const game = () => {
         if (playerChoice === 'rock') {
           if (computerChoice === 'scissors') {
             winner.textContent = 'Player Wins: Rock smashes Scissors!';
+            pScore++
             return;
           } else if (computerChoice === 'lizard') {
             winner.textContent = 'Player Wins: Rock crushes Lizard!';
+            pScore++
             return;
           } else if (computerChoice === 'paper') {
             winner.textContent = 'Computer Wins: Paper covers Rock!';
@@ -53,9 +59,11 @@ const game = () => {
         if (playerChoice === 'paper') {
             if (computerChoice === 'rock') {
               winner.textContent = 'Player Wins: Paper covers Rock!';
+              pScore++
               return;
             } else if (computerChoice === 'spock') {
               winner.textContent = 'Player Wins: Paper disproves Spock!';
+              pScore++
               return;
             } else if (computerChoice === 'scissors') {
               winner.textContent = 'Computer Wins: Scissors cuts Paper!';
@@ -70,9 +78,11 @@ const game = () => {
         if (playerChoice === 'scissors') {
             if (computerChoice === 'paper') {
               winner.textContent = 'Player Wins: Scissors cuts Paper';
+              pScore++
               return;
             } else if (computerChoice === 'lizard') {
               winner.textContent = 'Player Wins: Scissors cuts Lizard!';
+              pScore++
               return;
             } else if (computerChoice === 'rock') {
               winner.textContent = 'Computer Wins: Rock breaks Scissors!';
@@ -87,9 +97,11 @@ const game = () => {
         if (playerChoice === 'lizard') {
             if (computerChoice === 'spock') {
               winner.textContent = 'Player Wins: Lizard poisions Spock!';
+              pScore++
               return;
             } else if (computerChoice === 'paper') {
               winner.textContent = 'Player Wins: Lizard eats paper';
+              pScore++
               return;
             } else if (computerChoice === 'Scissors') {
               winner.textContent = 'Computer Wins: Scissors cuts Lizard!';
@@ -103,16 +115,23 @@ const game = () => {
         // Checking for Spock
         if (playerChoice === 'spock') {
             if (computerChoice === 'scissors') {
-              winner.textContent = 'Player Wins: Rock smashes Scissors!';
+              winner.textContent = 'Player Wins: Spock smashes Scissors!';
+              pScore++;
+              updateScore();
               return;
-            } else if (computerChoice === 'lizard') {
-              winner.textContent = 'Player Wins: Rock crushes Lizard!';
+            } else if (computerChoice === 'rock') {
+              winner.textContent = 'Player Wins: Spock vapourizes Rock!';
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'paper') {
               winner.textContent = 'Computer Wins: Paper disproves Spock!';
+              cScore++;
               return;
             } else if (computerChoice === 'lizard') {
-              winner.textContent = 'Computer Wins: Lizard poisions Spock!';
+              winner.textContent = 'Computer Wins: Lizard poisions Spock!'
+              cScore++;
+              updateScore();
               return;
             }
           }
@@ -130,20 +149,18 @@ const game = () => {
         });
       });
     };
-  
-    function updateScore () {
-      let pScore = 0;
-      let cScore = 0;
 
+    const updateScore = () => {
       const playerScore = document.querySelector(".player-score p");
       const computerScore = document.querySelector(".computer-score p");
-    }
-
-
+      playerScore.textContent = pScore;
+      computerScore.textContent = cScore;
+    };
     // Call the inner functions
     startGame();
     playMatch();
   };
-  
+
   // Call the game function to start the game
   game();
+  
