@@ -46,6 +46,12 @@ section {
     
 }
 
+.heroimg {
+    background-image: url(../images/hero1.png);
+    height: 200px;
+    width: ;
+}
+
 .intro h1 {
     font-size: 50px;
 }
