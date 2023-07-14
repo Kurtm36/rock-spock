@@ -170,6 +170,8 @@ const game = () => {
           // Update Images
           playerHand.src = `../assets/images/player/${this.textContent}.png`;
           computerHand.src = `../assets/images/computer/${computerChoice}.png`;
+
+          playerHand.style.animation= "shakePlayer 2s ease";
         });
       });
     };
