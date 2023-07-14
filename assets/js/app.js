@@ -8,6 +8,13 @@ const game = () => {
     const playBtn = document.querySelector('.intro button');
     const introScreen = document.querySelector('.intro');
     const match = document.querySelector('.match');
+    const hands = document.querySelectorAll('.hands img');
+
+    hands.forEach(hand => {
+      hand.addEventListener('animationend', function(){
+        this.style.animation = '';
+      });
+    });
 
     playBtn.addEventListener('click', function () {
       introScreen.classList.add('fadeOut');
@@ -172,6 +179,7 @@ const game = () => {
           computerHand.src = `../assets/images/computer/${computerChoice}.png`;
 
           playerHand.style.animation= "shakePlayer 2s ease";
+          computerHand.style.animation= 'shakeComputer 2s ease';
         });
       });
     };
