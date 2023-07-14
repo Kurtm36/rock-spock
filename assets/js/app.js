@@ -13,7 +13,7 @@ const game = () => {
       introScreen.classList.add('fadeOut');
       match.classList.add('fadeIn');
     });
-  }
+   }
   
     // Play Match function
     const playMatch = function() {
@@ -40,36 +40,48 @@ const game = () => {
         if (playerChoice === 'rock') {
           if (computerChoice === 'scissors') {
             winner.textContent = 'Player Wins: Rock smashes Scissors!';
-            pScore++
+            pScore++;
+            updateScore();
             return;
           } else if (computerChoice === 'lizard') {
             winner.textContent = 'Player Wins: Rock crushes Lizard!';
-            pScore++
+            pScore++;
+            updateScore();
             return;
           } else if (computerChoice === 'paper') {
             winner.textContent = 'Computer Wins: Paper covers Rock!';
+            cScore++;
+            updateScore();
             return;
           } else if (computerChoice === 'spock') {
             winner.textContent = 'Computer Wins: Spock vaporizes Rock!';
+            cScore++;
+            updateScore();
             return;
           }
-        }
+        }//
   
         // Checking for Paper
         if (playerChoice === 'paper') {
             if (computerChoice === 'rock') {
               winner.textContent = 'Player Wins: Paper covers Rock!';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'spock') {
               winner.textContent = 'Player Wins: Paper disproves Spock!';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'scissors') {
               winner.textContent = 'Computer Wins: Scissors cuts Paper!';
+              cScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'lizard') {
               winner.textContent = 'Computer Wins: Spock vaporizes Rock!';
+              cScore++;
+              updateScore();
               return;
             }
           }
@@ -78,17 +90,23 @@ const game = () => {
         if (playerChoice === 'scissors') {
             if (computerChoice === 'paper') {
               winner.textContent = 'Player Wins: Scissors cuts Paper';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'lizard') {
               winner.textContent = 'Player Wins: Scissors cuts Lizard!';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'rock') {
               winner.textContent = 'Computer Wins: Rock breaks Scissors!';
+              cScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'spock') {
               winner.textContent = 'Computer Wins: Spock vaporizes Scissors!';
+              cScore++;
+              updateScore();
               return;
             }
           }
@@ -97,17 +115,23 @@ const game = () => {
         if (playerChoice === 'lizard') {
             if (computerChoice === 'spock') {
               winner.textContent = 'Player Wins: Lizard poisions Spock!';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'paper') {
               winner.textContent = 'Player Wins: Lizard eats paper';
-              pScore++
+              pScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'Scissors') {
               winner.textContent = 'Computer Wins: Scissors cuts Lizard!';
+              cScore++;
+              updateScore();
               return;
             } else if (computerChoice === 'Rock') {
               winner.textContent = 'Computer Wins: Rock crushes Lizard!';
+              cScore++;
+              updateScore();
               return;
             }
           }
@@ -144,8 +168,8 @@ const game = () => {
           // Compare Hands function
           compareHands(option.textContent, computerChoice);
           // Update Images
-          playerHand.src = `../assets/images/${this.textContent}.png`;
-          computerHand.src = `../assets/images/${computerChoice}.png`;
+          playerHand.src = `../assets/images/player/${this.textContent}.png`;
+          computerHand.src = `../assets/images/computer/${computerChoice}.png`;
         });
       });
     };

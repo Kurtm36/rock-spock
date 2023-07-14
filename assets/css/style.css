@@ -46,10 +46,8 @@ section {
     
 }
 
-.heroimg {
-    background-image: url(../images/hero1.png);
-    height: 200px;
-    width: ;
+img {
+    border-spacing:500px ;
 }
 
 .intro h1 {
@@ -92,6 +90,7 @@ section {
     transform: rotateY(180deg)
 }
 
+
 div.fadeOut {
     opacity: 0;
     pointer-events: none;
@@ -102,4 +101,19 @@ div.fadeIn {
     opacity: 1;
     pointer-events: all;
     
+}
+
+@keyframes shakePlayer {
+    0% {
+      transform: rotateY(180deg) translateY(0px);
+    }
+    15% {
+      transform: rotateY(180deg) translateY(-50px);
+    }
+    25% {
+      transform: rotateY(180deg) translateY(0px);
+    }
+    35% {
+      transform: rotateY(180deg) translateY(-50px);
+   }
 }
