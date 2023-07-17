@@ -205,11 +205,11 @@ const game = () => {
   game();
   
   //Tutorial Pop up
-  const openModalButtons = document.querySelectorAll('[data-modal-target]')
-const closeModalButtons = document.querySelectorAll('[data-close-button]')
+  const openTutorialButton = document.querySelectorAll('[data-modal-target]')
+const closeTutorialButton = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
-openModalButtons.forEach(button => {
+openTutorialButton.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
     openModal(modal)
@@ -223,7 +223,7 @@ overlay.addEventListener('click', () => {
   })
 })
 
-closeModalButtons.forEach(button => {
+closeTutorialButton.forEach(button => {
   button.addEventListener('click', () => {
     const modal = button.closest('.modal')
     closeModal(modal)
