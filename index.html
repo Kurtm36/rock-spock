@@ -3,26 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta keywords="" content="">
+    <meta author="" content="">
+    <meta descripiton="" content="">
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Document</title>
 </head>
 <body>
     <!--Scoreboard-->
-   <section class="game">
-    <div class="score">
-        <div class="player-score">
-            <h2>Player</h2>
-            <p>0</p>
-        </div>
-        <div class="computer-score">
-            <h2>Computer</h2>
-            <p>0</p>
-        </div>
+   <main class="game">
+    <header>
+        
+        <div class="score">
+            <div class="player-score">
+                <h2>Player</h2>
+                <p>0</p>
+            </div>
+            <div class="computer-score">
+                <h2>Computer</h2>
+                <p>0</p>
+            </div>
     </div>
+    </header>
     <!--Intro-->    
     <div class="intro">
         <h1>Rock, Paper , Scissors, lizard ,Spock!</h1>
-        <img src="assets/images/hero1.png" alt="">
+        <img src="assets/images/hero1.png" alt="Image descripiton of how to play">
         <button>Lets Play!</button>
     </div>
     <!--Player/Computer hand-->
@@ -34,14 +40,14 @@
         </div>
         <!-- button for rock, paper, etc-->
         <div class="options">
-            <button class="rock">rock</button>
-            <button class="paper" >paper</button>
-            <button class="scissors">scissors</button>
-            <button class="lizard">lizard</button>
-            <button class="spock">spock</button>
+            <button class="rock"aria-label="Select Rock">rock</button>
+            <button class="paper" aria-label="Select Paper">paper</button>
+            <button class="scissors"aria-label="Select Scissors">scissors</button>
+            <button class="lizard"aria-label="Select Lizard">lizard</button>
+            <button class="spock" aria-label="Select Spock">spock</button>
         </div>
     </div>
-   </section>
+   </main>
 
    
 <script src="assets/js/app.js"></script>

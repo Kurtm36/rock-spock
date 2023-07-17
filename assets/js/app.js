@@ -177,8 +177,11 @@ const game = () => {
             compareHands(this.textContent, computerChoice);
             //Update Images
             playerHand.src = `./assets/images/player/${this.textContent}.png`;
+            playerHand.alt = `Player got ${this.textContent}`
             computerHand.src = `./assets/images/computer/${computerChoice}.png`;
+            computerHand.alt = `Computer got ${computerChoice}`
           }, 2000);
+
           //Animation
           playerHand.style.animation = 'shakePlayer 2s ease';
           computerHand.style.animation = 'shakeComputer 2s ease';
@@ -199,4 +202,3 @@ const game = () => {
 
   // Call the game function to start the game
   game();
-  
