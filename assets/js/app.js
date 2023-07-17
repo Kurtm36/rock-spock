@@ -167,29 +167,31 @@ const game = () => {
             }
           }
       };
-  
+      //Computer choice function
       options.forEach(option => {
         option.addEventListener('click', function() {
           const computerNumber = Math.floor(Math.random() * 5);
           const computerChoice = computerOptions[computerNumber];
-          // Compare Hands function
-          compareHands(option.textContent, computerChoice);
-          // Update Images
-          playerHand.src = `../assets/images/player/${this.textContent}.png`;
-          computerHand.src = `../assets/images/computer/${computerChoice}.png`;
-
-          playerHand.style.animation= "shakePlayer 2s ease";
-          computerHand.style.animation= 'shakeComputer 2s ease';
+          // Animation time out 
+          setTimeout(() => {
+            compareHands(this.textContent, computerChoice);
+            //Update Images
+            playerHand.src = `./assets/images/player/${this.textContent}.png`;
+            computerHand.src = `./assets/images/computer/${computerChoice}.png`;
+          }, 2000);
+          //Animation
+          playerHand.style.animation = 'shakePlayer 2s ease';
+          computerHand.style.animation = 'shakeComputer 2s ease';
         });
       });
     };
-
-    const updateScore = () => {
-      const playerScore = document.querySelector(".player-score p");
-      const computerScore = document.querySelector(".computer-score p");
-      playerScore.textContent = pScore;
-      computerScore.textContent = cScore;
-    };
+    // Update score function
+    function updateScore() {
+    const playerScore = document.querySelector(".player-score p");
+    const computerScore = document.querySelector(".computer-score p");
+    playerScore.textContent = pScore;
+    computerScore.textContent = cScore;
+  }
     // Call the inner functions
     startGame();
     playMatch();
