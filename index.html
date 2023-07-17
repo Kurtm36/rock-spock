@@ -7,6 +7,7 @@
     <meta author="" content="">
     <meta descripiton="" content="">
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/modal.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -31,13 +32,13 @@
         <button>Lets Play!</button>
     </div>
     <div>
-        <button>Tutorial</button>
-        <div class="popUp" id="popUp">
-            <div class="popup-Header">
+        <button data-modal-target="#modal">Tutorial</button>
+        <div class="modal" id="modal">
+            <div class="modal-Header">
                 <div class="title">Example Content:</div>
-                <button class="close-button">X</button>
+                <button data-close-button class="close-button">X</button>
             </div>
-            <div class="popup-Body">
+            <div class="modal-Body">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt architecto, aperiam possimus officiis ex at. Optio, aliquid deserunt, qui molestiae blanditiis at commodi harum distinctio velit unde reprehenderit quos provident.
                 Architecto ea sint nihil asperiores cum, commodi incidunt, iusto qui, adipisci voluptas quasi possimus quidem tempora! Voluptas aspernatur labore quasi nemo consectetur tempora sint adipisci! Sapiente animi quos saepe eveniet!
                 Ullam optio sunt architecto ipsum odit aperiam dolorem itaque a repellendus, quia sequi rem! Reiciendis repellat quibusdam quasi sunt beatae recusandae inventore, omnis optio unde maxime eius sint. Voluptatibus, officia.
@@ -68,8 +69,8 @@
         </div>
     </div>
    </main>
-
-   
 <script src="assets/js/app.js"></script>
+   
+
 </body>
 </html>
