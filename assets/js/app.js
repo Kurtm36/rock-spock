@@ -38,14 +38,14 @@ const game = () => {
       // Computer Options
       const computerOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     //Array numbers:              0       1          2           3       4
-
+      
         //Compare function
         const compareHands = (playerChoice, computerChoice) => {
           
         // Update text for Match result
         const winner = document.querySelector('.winner');
         
-        roundsPlayed++;
+        
         // Every fifth round is bonus 
         if (roundsPlayed > 0 && roundsPlayed % 5 === 0) {
         doublePointsBonusRound();
@@ -54,9 +54,12 @@ const game = () => {
         // Checking for a draw
         if (playerChoice === computerChoice) {
           winner.textContent = "It's a Draw!";
+          roundsPlayed++
           return;
         }
-  
+        
+        roundsPlayed++
+
         // Checking for Rock
         if (playerChoice === 'rock') {
           if (computerChoice === 'scissors') {
@@ -80,7 +83,7 @@ const game = () => {
             updateScore();
             return;
           }
-        }//
+        }
   
         // Checking for Paper
         if (playerChoice === 'paper') {
@@ -180,6 +183,7 @@ const game = () => {
               return;
             } 
           }
+          
       };
       //Computer choice function
       options.forEach(option => {
@@ -212,7 +216,7 @@ const game = () => {
       // Update the score with bonus points
       pScore += bonusPoints;
       updateScore();
-  
+      
       // Display the bonus round message
       const winner = document.querySelector('.winner');
       winner.textContent = "Bonus Round! Player earns 5 points!";
@@ -231,6 +235,7 @@ const game = () => {
     }
     
     // Call the inner functions
+    
     startGame();
     playMatch();
   };

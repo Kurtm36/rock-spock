@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta keywords="" content="">
-    <meta author="" content="">
-    <meta descripiton="" content="">
+    <meta keywords="Rock ,paper , scissors , lizard , spock, Bang Theroy " content="game, rock, paper, scissors">
+    <meta author="Kurt " content="">
+    <meta descripiton="Rock paper scissors game" content="game">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon.png">
+
     
-    <title>Document</title>
+    <title>RPSLS</title>
 </head>
 <body>
     <!--Scoreboard-->
    <main class="game">
     <header>
+        <h2></h2>
         <div class="score">
             <div class="player-score">
                 <h2>Player</h2>
+                <p>0</p>
+            </div>
+            <div class="rounds-played">
+                <h2>Rounds</h2>
                 <p>0</p>
             </div>
             <div class="computer-score">
                 <h2>Computer</h2>
                 <p>0</p>
             </div>
-            <div class="rounds-played">
-                <h2>Rounds Played</h2>
-                <p>0</p>
-            </div>
-
     </div>
     </header>
     <!--Intro-->    
@@ -36,6 +38,7 @@
         <img src="assets/images/hero1.png" alt="Image descripiton of how to play">
         <button>Lets Play!</button>
     </div>
+    <!--Tutorial modal-->
     <div>
         <button data-modal-target="#modal">Tutorial</button>
         <div class="modal" id="modal">
@@ -69,6 +72,9 @@
                     <li>Spock smashes Scissors: If a player chooses Spock and the other player chooses Scissors, Spock wins.</li>
                     <li>Spock vaporizes Rock: If a player chooses Spock and the other player chooses Rock, Spock wins.</li>
                 </ul>
+                <h2>
+                    Bonus Round is every 5 rounds !. 
+                </h2>
             </div>
         </div>
         <div id="overlay"></div>
@@ -87,7 +93,7 @@
             <button class="scissors"aria-label="Select Scissors">scissors</button>
             <button class="lizard"aria-label="Select Lizard">lizard</button>
             <button class="spock" aria-label="Select Spock">spock</button>
-            <button class="">Bonus</button>
+            <button class="bonus-round-btn" aria-label="Bonus Round button">Bonus</button>
         </div>
     </div>
     <footer>
