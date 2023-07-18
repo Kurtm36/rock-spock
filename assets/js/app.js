@@ -1,9 +1,29 @@
 const game = () => {
   let pScore = 0;
   let cScore = 0;
+  let roundsPlayed = 0;
+
+
+  console.log(roundsPlayed);
   console.log(pScore);
   console.log(cScore);
-    // Start the game
+
+    // Function to handle the double points bonus round
+  function doublePointsBonusRound() {
+    
+    //Player earns extra points
+    const bonusPoints = 5;
+
+    // Update the score with bonus points
+    pScore += bonusPoints;
+    updateScore();
+
+    // Display the bonus round message
+    const winner = document.querySelector('.winner');
+    winner.textContent = `Bonus Round! Player earns ${bonusPoints} points!`;
+  }
+
+    // Start the game (transition)
     function startGame() {
     const playBtn = document.querySelector('.intro button');
     const introScreen = document.querySelector('.intro');
@@ -27,16 +47,25 @@ const game = () => {
       const options = document.querySelectorAll('.options button');
       const playerHand = document.querySelector('.player-hand');
       const computerHand = document.querySelector('.computer-hand');
+      const scoreTracker = document.querySelector('rounds-played')
   
       // Computer Options
       const computerOptions = ['rock', 'paper', 'scissors', 'lizard', 'spock'];
     //Array numbers:              0       1          2           3       4
-
+      
         //Compare function
-        const compareHands = (playerChoice, computerChoice) => {
+        const compareHands = (playerChoice, computerChoice) => {  
+        
         // Update text for Match result
         const winner = document.querySelector('.winner');
-  
+          
+        // Increment the roundsPlayed counter after each round
+        roundsPlayed++;
+
+        // Check if the bonus round should be triggered (every 5 rounds)
+        if (roundsPlayed > 0 && roundsPlayed % 5 === 0) {
+        doublePointsBonusRound();
+        }
         // Checking for a draw
         if (playerChoice === computerChoice) {
           winner.textContent = "It's a Draw!";
@@ -165,6 +194,7 @@ const game = () => {
               updateScore();
               return;
             }
+            roundsPlayed++
           }
       };
       //Computer choice function
@@ -192,9 +222,17 @@ const game = () => {
     function updateScore() {
     const playerScore = document.querySelector(".player-score p");
     const computerScore = document.querySelector(".computer-score p");
+    const scoreTracker = document.querySelector(".rounds-played p")
+
+    scoreTracker.textContent= roundsPlayed++;
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
-  }
+    }
+    // Check if the bonus round should be triggered (every 5 rounds)
+    if (roundsPlayed > 0 && roundsPlayed % 5 === 0) {
+      doublePointsBonusRound();
+    }
+
     // Call the inner functions
     startGame();
     playMatch();
@@ -205,7 +243,7 @@ const game = () => {
   game();
   
   //Tutorial Pop up
-  const openTutorialButton = document.querySelectorAll('[data-modal-target]')
+const openTutorialButton = document.querySelectorAll('[data-modal-target]')
 const closeTutorialButton = document.querySelectorAll('[data-close-button]')
 const overlay = document.getElementById('overlay')
 
