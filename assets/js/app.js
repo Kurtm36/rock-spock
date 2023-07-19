@@ -4,7 +4,7 @@ const game = () => {
   let roundsPlayed = 0;
 
 
-  console.log(roundsPlayed);
+  
   console.log(pScore);
   console.log(cScore);
 
@@ -47,7 +47,7 @@ const game = () => {
         
         
         // Every fifth round is bonus 
-        if (roundsPlayed > 0 && roundsPlayed % 5 === 0) {
+        if (roundsPlayed > 0 && roundsPlayed % 4 === 0) {
         doublePointsBonusRound();
         }
         
@@ -183,7 +183,7 @@ const game = () => {
               return;
             } 
           }
-          
+        roundsPlayed++  
       };
       //Computer choice function
       options.forEach(option => {
@@ -233,9 +233,25 @@ const game = () => {
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
     }
+    // Reset the game and variables
+    function resetGame() {
+      pScore = 0;
+      cScore = 0;
+      roundsPlayed = 0;
+      updateScore();
+
+      // Add event listener to the reset button
+    const resetButton = document.querySelector('.reset-btn');
+    resetButton.addEventListener('click', resetGame);
+    
+  }
+
+    // Add event listener to the reset button
+    const resetButton = document.querySelector('.reset-btn');
+    resetButton.addEventListener('click', resetGame);
     
     // Call the inner functions
-    
+    resetGame();
     startGame();
     playMatch();
   };
