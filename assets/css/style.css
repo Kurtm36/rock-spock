@@ -110,7 +110,21 @@ img {
 .player-hand {
     transform: rotateY(180deg)
 }
-
+.bonus-message {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: rgb(2, 0, 0);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+.bonus-message.visible {
+    display: block;
+  }
 
 div.fadeOut {
     opacity: 0;
