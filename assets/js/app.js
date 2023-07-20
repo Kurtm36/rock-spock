@@ -119,9 +119,8 @@ function handleDoublePoints(playerChoice, computerChoice) {
       (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
       (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
     ) {
-      winner.textContent = winner.textContent = `Bonus Won! : ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} `;
-      winner.innerHTML = "Bonus round"
-      pScore += 10; 
+      winner.textContent = 'Bonus Round!' + `${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+      pScore += 10;
       updateScore();
     } else {
       // If it's not a double points win, use the regular scoring logic
@@ -192,3 +191,29 @@ const resetPage = () => {
 }
 
 resetButton.addEventListener('click', resetPage)
+
+
+//Audio
+
+//Option buttons
+let letsPlay = document.getElementById('lets-play');
+let tutorial = document.getElementById("tutorial");
+let reset = document.getElementById("reset");
+let play = document.getElementById("click");
+let play1 = document.getElementById("click1");
+let play2 = document.getElementById("click2");
+let play3 = document.getElementById("click3");
+let play4 = document.getElementById("click4");
+
+function playMusic() {
+ let audio = new Audio ("assets/sound/audio.mp3")
+ audio.play()
+}
+letsPlay.addEventListener("click", playMusic);
+tutorial.addEventListener("click", playMusic);
+reset.addEventListener("click", playMusic);
+play.addEventListener("click", playMusic);
+play1.addEventListener("click", playMusic);
+play2.addEventListener("click", playMusic);
+play3.addEventListener("click", playMusic);
+play4.addEventListener("click", playMusic);

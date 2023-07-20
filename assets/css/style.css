@@ -68,6 +68,8 @@ main {
 
 img {
     border-spacing:500px ;
+    border: 1pm solid black;
+  
 }
 
 .intro h1 {
@@ -110,6 +112,7 @@ img {
 .player-hand {
     transform: rotateY(180deg)
 }
+
 .bonus-message {
     display: none;
     position: absolute;
@@ -122,10 +125,6 @@ img {
     border-radius: 5px;
   }
   
-.bonus-message.visible {
-    display: block;
-  }
-
 div.fadeOut {
     opacity: 0;
     pointer-events: none;
@@ -213,7 +212,7 @@ padding:5px;
 
 /* Reset button */
 .reset-btn {
-  
+  padding: 10px;
 }
 
 /* Keyframe animation for player and computer hands */
@@ -278,3 +277,13 @@ padding:5px;
       transform: translateY(0px);
     }
   }
+
+/* Media queries */
+
+/* Media query for screens with a maximum width of 768px (e.g., tablets) */
+@media (max-width: 768px) {
+  img {
+    width:200px
+
+  }
+}
