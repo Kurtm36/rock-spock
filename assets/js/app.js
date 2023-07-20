@@ -3,6 +3,8 @@ let roundsPlayed = '0';
 let pScore = 0;
 let cScore = 0;
 
+console.log(roundsPlayed);
+
 const game = () => {
 
   // Start the game (transition)
@@ -39,7 +41,7 @@ const game = () => {
       // Update text for Match result
       const winner = document.querySelector(".winner");
       roundsPlayed++
-      
+      handleDoublePoints(playerChoice, computerChoice);
     //Checking player hand agaist computer
       if (playerChoice === computerChoice) {
         winner.textContent = "It's a Draw!";
@@ -51,13 +53,13 @@ const game = () => {
         (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
         (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
       ) {
-        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} `;
+        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
         pScore++;
       } else {
-        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} `;
+        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
         cScore++;
-      }
-    
+      }   
+      
       updateScore();
     };
     //Computer choice function
@@ -65,6 +67,7 @@ const game = () => {
       option.addEventListener("click", function () {
         const computerNumber = Math.floor(Math.random() * 5);
         const computerChoice = computerOptions[computerNumber];
+        
         // Animation time out
         setTimeout(() => {
           compareHands(this.textContent, computerChoice);
@@ -82,24 +85,65 @@ const game = () => {
     });
   };
 
-  // Update score function
-  function updateScore() {
-    const playerScore = document.querySelector(".player-score p");
-    const computerScore = document.querySelector(".computer-score p");
-    const scoreTracker = document.querySelector(".rounds-played p");
+  
 
-    scoreTracker.textContent = roundsPlayed;
-    playerScore.textContent = pScore;
-    computerScore.textContent = cScore;
-  }
-
-  // Call the inner functions
+  // Call the inner functions and outer functions 
+  
   startGame();
   playMatch();
 };
 
 // Call the game function to start the game
 game();
+
+// Update score function
+function updateScore() {
+  const playerScore = document.querySelector(".player-score p");
+  const computerScore = document.querySelector(".computer-score p");
+  const scoreTracker = document.querySelector(".rounds-played p");
+
+  scoreTracker.textContent = roundsPlayed;
+  playerScore.textContent = pScore;
+  computerScore.textContent = cScore;
+}
+
+//Double points function for bonus round 
+function handleDoublePoints(playerChoice, computerChoice) {
+  const winner = document.querySelector(".winner");
+  
+  if (roundsPlayed % 5 === 0) {
+    if (
+      (playerChoice === "rock" && (computerChoice === "scissors" || computerChoice === "lizard")) ||
+      (playerChoice === "paper" && (computerChoice === "rock" || computerChoice === "spock")) ||
+      (playerChoice === "scissors" && (computerChoice === "paper" || computerChoice === "lizard")) ||
+      (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
+      (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
+    ) {
+      winner.textContent = winner.textContent = `Bonus Won! : ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} `;
+      winner.innerHTML = "Bonus round"
+      pScore += 10; 
+      updateScore();
+    } else {
+      // If it's not a double points win, use the regular scoring logic
+      if (playerChoice === computerChoice) {
+        winner.textContent = "It's a Draw!";
+      } else if (
+        (playerChoice === "rock" && (computerChoice === "scissors" || computerChoice === "lizard")) ||
+        (playerChoice === "paper" && (computerChoice === "rock" || computerChoice === "spock")) ||
+        (playerChoice === "scissors" && (computerChoice === "paper" || computerChoice === "lizard")) ||
+        (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
+        (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
+      ) {
+        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+        pScore++;
+      } else {
+        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} Beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
+        cScore++;
+      }
+      updateScore();
+    }
+  }
+};
 
 //Tutorial Pop up
 const openTutorialButton = document.querySelectorAll("[data-modal-target]");
