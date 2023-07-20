@@ -1,7 +1,11 @@
+
+let roundsPlayed = '0';
+let pScore = 0;
+let cScore = 0;
+
 const game = () => {
-  let pScore = 0;
-  let cScore = 0;
-  let roundsPlayed = 0;
+  
+  
 
   console.log(pScore);
   console.log(cScore);
@@ -39,137 +43,28 @@ const game = () => {
     const compareHands = (playerChoice, computerChoice) => {
       // Update text for Match result
       const winner = document.querySelector(".winner");
-      roundsPlayed++;
+      roundsPlayed++
+      
+      
 
-      // Checking for a draw
       if (playerChoice === computerChoice) {
         winner.textContent = "It's a Draw!";
-        roundsPlayed++;
+        updateScore();
+      } else if (
+        (playerChoice === "rock" && (computerChoice === "scissors" || computerChoice === "lizard")) ||
+        (playerChoice === "paper" && (computerChoice === "rock" || computerChoice === "spock")) ||
+        (playerChoice === "scissors" && (computerChoice === "paper" || computerChoice === "lizard")) ||
+        (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
+        (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
+      ) {
+        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} wins!`;
+        pScore++;
+      } else {
+        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} wins!`;
+        cScore++;
       }
-
-      // Checking for Rock
-      if (playerChoice === "rock") {
-        if (computerChoice === "scissors") {
-          winner.textContent = "Player Wins: Rock smashes Scissors!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "lizard") {
-          winner.textContent = "Player Wins: Rock crushes Lizard!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "paper") {
-          winner.textContent = "Computer Wins: Paper covers Rock!";
-          cScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "spock") {
-          winner.textContent = "Computer Wins: Spock vaporizes Rock!";
-          cScore++;
-          updateScore();
-          return;
-        }
-      }
-
-      // Checking for Paper
-      if (playerChoice === "paper") {
-        if (computerChoice === "rock") {
-          winner.textContent = "Player Wins: Paper covers Rock!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "spock") {
-          winner.textContent = "Player Wins: Paper disproves Spock!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "scissors") {
-          winner.textContent = "Computer Wins: Scissors cuts Paper!";
-          cScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "lizard") {
-          winner.textContent = "Computer Wins: Spock vaporizes Rock!";
-          cScore++;
-          updateScore();
-          return;
-        }
-      }
-
-      // Checking for Scissors
-      if (playerChoice === "scissors") {
-        if (computerChoice === "paper") {
-          winner.textContent = "Player Wins: Scissors cuts Paper";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "lizard") {
-          winner.textContent = "Player Wins: Scissors cuts Lizard!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "rock") {
-          winner.textContent = "Computer Wins: Rock breaks Scissors!";
-          cScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "spock") {
-          winner.textContent = "Computer Wins: Spock vaporizes Scissors!";
-          cScore++;
-          updateScore();
-          return;
-        }
-      }
-
-      // Checking for Lizard
-      if (playerChoice === "lizard") {
-        if (computerChoice === "spock") {
-          winner.textContent = "Player Wins: Lizard poisions Spock!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "paper") {
-          winner.textContent = "Player Wins: Lizard eats paper";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "Scissors") {
-          winner.textContent = "Computer Wins: Scissors cuts Lizard!";
-          cScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "Rock") {
-          winner.textContent = "Computer Wins: Rock crushes Lizard!";
-          cScore++;
-          updateScore();
-          return;
-        }
-      }
-
-      // Checking for Spock
-      if (playerChoice === "spock") {
-        if (computerChoice === "scissors") {
-          winner.textContent = "Player Wins: Spock smashes Scissors!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "rock") {
-          winner.textContent = "Player Wins: Spock vapourizes Rock!";
-          pScore++;
-          updateScore();
-          return;
-        } else if (computerChoice === "paper") {
-          winner.textContent = "Computer Wins: Paper disproves Spock!";
-          cScore++;
-          return;
-        } else if (computerChoice === "lizard") {
-          winner.textContent = "Computer Wins: Lizard poisions Spock!";
-          cScore++;
-          updateScore();
-          return;
-        }
-      }
+      
+      updateScore();
     };
     //Computer choice function
     options.forEach((option) => {
@@ -202,6 +97,10 @@ const game = () => {
     scoreTracker.textContent = roundsPlayed;
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
+
+    
+
+    
   }
 
   // Call the inner functions
