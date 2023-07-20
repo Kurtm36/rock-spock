@@ -4,11 +4,6 @@ let pScore = 0;
 let cScore = 0;
 
 const game = () => {
-  
-  
-
-  console.log(pScore);
-  console.log(cScore);
 
   // Start the game (transition)
   function startGame() {
@@ -45,8 +40,7 @@ const game = () => {
       const winner = document.querySelector(".winner");
       roundsPlayed++
       
-      
-
+    //Checking player hand agaist computer
       if (playerChoice === computerChoice) {
         winner.textContent = "It's a Draw!";
         updateScore();
@@ -57,13 +51,13 @@ const game = () => {
         (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
         (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
       ) {
-        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} wins!`;
+        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} `;
         pScore++;
       } else {
-        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} wins!`;
+        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} `;
         cScore++;
       }
-      
+    
       updateScore();
     };
     //Computer choice function
@@ -97,14 +91,9 @@ const game = () => {
     scoreTracker.textContent = roundsPlayed;
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
-
-    
-
-    
   }
 
   // Call the inner functions
-
   startGame();
   playMatch();
 };
@@ -149,3 +138,13 @@ function closeModal(modal) {
   modal.classList.remove("active");
   overlay.classList.remove("active");
 }
+
+
+// Reset button
+const resetButton = document.querySelector('.reset-btn');
+
+const resetPage = () => {
+  location.reload();
+}
+
+resetButton.addEventListener('click', resetPage)
