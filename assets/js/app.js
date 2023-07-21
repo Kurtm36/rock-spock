@@ -1,7 +1,7 @@
-
 let roundsPlayed = '0';
 let pScore = 0;
 let cScore = 0;
+let bonusRound = false;
 
 console.log(roundsPlayed);
 
@@ -22,7 +22,17 @@ const game = () => {
 
     playBtn.addEventListener("click", function () {
       introScreen.classList.add("fadeOut");
-      match.classList.add("fadeIn");
+      setTimeout(() => {
+        introScreen.style.display = "none";
+        match.style.display = "block";
+        document.getElementsByClassName("score")[0].style.display = "flex";
+      }, 700);
+      setTimeout(() => {
+        match.classList.add("fadeIn");
+        document.getElementsByClassName("score")[0].classList.add("fadeIn");
+
+      }, 1000);
+      playMusic();
     });
   }
 
@@ -35,13 +45,14 @@ const game = () => {
     // Computer Options
     const computerOptions = ["rock", "paper", "scissors", "lizard", "spock"];
     //Array numbers:              0       1          2           3       4
-
     //Compare function
     const compareHands = (playerChoice, computerChoice) => {
       // Update text for Match result
       const winner = document.querySelector(".winner");
       roundsPlayed++
-      handleDoublePoints(playerChoice, computerChoice);
+      if (roundsPlayed % 5 === 0) {
+        bonusRound = true;
+      }
     //Checking player hand agaist computer
       if (playerChoice === computerChoice) {
         winner.textContent = "It's a Draw!";
@@ -53,8 +64,16 @@ const game = () => {
         (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
         (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
       ) {
-        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
-        pScore++;
+        if (bonusRound){
+          winner.textContent = 'Bonus Round!' + `${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+          pScore += 10;
+          bonusRound = false;
+          updateScore();
+        } else {
+          winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+          pScore++;
+        }
+
       } else {
         winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
         cScore++;
@@ -65,6 +84,8 @@ const game = () => {
     //Computer choice function
     options.forEach((option) => {
       option.addEventListener("click", function () {
+        option.setAttribute("disabled", true);
+        playMusic();
         const computerNumber = Math.floor(Math.random() * 5);
         const computerChoice = computerOptions[computerNumber];
         
@@ -76,6 +97,8 @@ const game = () => {
           playerHand.alt = `Player got ${this.textContent}`;
           computerHand.src = `./assets/images/computer/${computerChoice}.png`;
           computerHand.alt = `Computer got ${computerChoice}`;
+          option.removeAttribute("disabled");
+
         }, 2000);
 
         //Animation
@@ -107,42 +130,6 @@ function updateScore() {
   computerScore.textContent = cScore;
 }
 
-//Double points function for bonus round 
-function handleDoublePoints(playerChoice, computerChoice) {
-  const winner = document.querySelector(".winner");
-  
-  if (roundsPlayed % 5 === 0) {
-    if (
-      (playerChoice === "rock" && (computerChoice === "scissors" || computerChoice === "lizard")) ||
-      (playerChoice === "paper" && (computerChoice === "rock" || computerChoice === "spock")) ||
-      (playerChoice === "scissors" && (computerChoice === "paper" || computerChoice === "lizard")) ||
-      (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
-      (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
-    ) {
-      winner.textContent = 'Bonus Round!' + `${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
-      pScore += 10;
-      updateScore();
-    } else {
-      // If it's not a double points win, use the regular scoring logic
-      if (playerChoice === computerChoice) {
-        winner.textContent = "It's a Draw!";
-      } else if (
-        (playerChoice === "rock" && (computerChoice === "scissors" || computerChoice === "lizard")) ||
-        (playerChoice === "paper" && (computerChoice === "rock" || computerChoice === "spock")) ||
-        (playerChoice === "scissors" && (computerChoice === "paper" || computerChoice === "lizard")) ||
-        (playerChoice === "lizard" && (computerChoice === "spock" || computerChoice === "paper")) ||
-        (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
-      ) {
-        winner.textContent = `Player Wins: ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
-        pScore++;
-      } else {
-        winner.textContent = `Computer Wins: ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} Beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}`;
-        cScore++;
-      }
-      updateScore();
-    }
-  }
-};
 
 //Tutorial Pop up
 const openTutorialButton = document.querySelectorAll("[data-modal-target]");
@@ -195,25 +182,7 @@ resetButton.addEventListener('click', resetPage)
 
 //Audio
 
-//Option buttons
-let letsPlay = document.getElementById('lets-play');
-let tutorial = document.getElementById("tutorial");
-let reset = document.getElementById("reset");
-let play = document.getElementById("click");
-let play1 = document.getElementById("click1");
-let play2 = document.getElementById("click2");
-let play3 = document.getElementById("click3");
-let play4 = document.getElementById("click4");
-
 function playMusic() {
  let audio = new Audio ("assets/sound/audio.mp3")
  audio.play()
 }
-letsPlay.addEventListener("click", playMusic);
-tutorial.addEventListener("click", playMusic);
-reset.addEventListener("click", playMusic);
-play.addEventListener("click", playMusic);
-play1.addEventListener("click", playMusic);
-play2.addEventListener("click", playMusic);
-play3.addEventListener("click", playMusic);
-play4.addEventListener("click", playMusic);
