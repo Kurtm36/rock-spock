@@ -52,6 +52,7 @@ const game = () => {
       roundsPlayed++
       if (roundsPlayed % 5 === 0) {
         bonusRound = true;
+        updateScore();
       }
     //Checking player hand agaist computer
       if (playerChoice === computerChoice) {
@@ -65,8 +66,8 @@ const game = () => {
         (playerChoice === "spock" && (computerChoice === "scissors" || computerChoice === "rock"))
       ) {
         if (bonusRound){
-          winner.textContent = 'Bonus Round!' + `${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
-          pScore += 10;
+          winner.textContent = 'Bonus Round!' + ` ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} Beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}`;
+          pScore += 3;
           bonusRound = false;
           updateScore();
         } else {
