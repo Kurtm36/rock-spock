@@ -11,6 +11,8 @@ body {
   flex-direction: column;
 }
 
+
+
 footer {
   text-align: center;
   background-color: rgb(2, green, blue);
@@ -73,17 +75,11 @@ main {
     transition: opacity 0.5s ease 0.5s;
 }
 
-img {
-    border-spacing:500px ;
-    border: 1pm solid black;
-  
-}
-
 .intro h1 {
     font-size: 50px;
 }
 
-.intro button, .match button, .tutorial-btn, .reset-btn {
+.intro button, .match button, .tutorial-btn, .reset-btn  {
     width: 100px;
     height: 50px;
     background: none;
@@ -107,6 +103,13 @@ img {
 .winner {
     color: black;
     text-align: center;
+}
+
+.options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .hands, .options {
@@ -230,6 +233,7 @@ padding:5px;
 /* Reset button */
 .reset-btn {
   padding: 10px;
+  
 }
 
 /* Keyframe animation for player and computer hands */
@@ -297,10 +301,28 @@ padding:5px;
 
 /* Media queries */
 
-/* Media query for screens with a maximum width of 768px (e.g., tablets) */
-@media (max-width: 768px) {
-  img {
-    width:200px;
-
+/* Media query for screens with a maximum width of 992px */
+@media (max-width: 992px) {
+  .intro h1 {
+   font-size: 42px;
   }
+ }
+
+/* Media query for screens with a maximum width of 768px */
+@media (max-width: 768px) {
+ .intro h1 {
+  font-size: 40px;
+ }
 }
+
+/* Media query for screens with a maximum width of 480px */
+@media (max-width: 482px) {
+  .intro h1 {
+   font-size: 40px;
+  }
+
+  img {
+    width:320px;
+  }
+ }
+
