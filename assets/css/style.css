@@ -302,10 +302,28 @@ padding:5px;
 /* Media queries */
 
 /* Media query for screens with a maximum width of 992px */
+@media (max-width: 1200px) {
+  .intro h2 {
+   font-size: 42px;
+  }
+  
+  .modal-body > h2 {
+  font-size: large;
+ }
+}
+ 
+
+/* Media query for screens with a maximum width of 992px */
 @media (max-width: 992px) {
   .intro h2 {
    font-size: 42px;
   }
+  .modal-body > h2 {
+    font-size:medium ;
+   }
+   li {
+    font-size: 13px;
+   }
  }
 
 /* Media query for screens with a maximum width of 768px */
@@ -325,6 +343,12 @@ padding:5px;
  .score h2 {
   font-size: 30px;
  }
+ .modal-body  h2 {
+  font-size: ;
+ }
+ li {
+  font-size: small;
+ }
 }
 
 /* Media query for screens with a maximum width of 480px */
@@ -338,7 +362,14 @@ padding:5px;
   }
 
   .score h2 {
-    font-size: 30px;
+    font-size: 20px;
+  }
+
+  .modal-body > h2 {
+    font-size: small;
+  }
+  li {
+    font-size: 10px;
   }
  }
 
@@ -381,11 +412,17 @@ padding:5px;
 /* Media query for screens with a maximum width of 417px */
 @media (max-width: 380px) {
   h2 {
-    font-size:15px;
+    font-size:10px;
   }
 
   img {
     width: 180px;
+  }
+  .modal-body > h2 {
+    font-size: px;
+  }
+  li {
+    font-size: 9px;
   }
 }
 
