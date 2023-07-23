@@ -76,7 +76,7 @@ main {
 }
 
 .intro h1 {
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .intro button, .match button, .tutorial-btn, .reset-btn  {
@@ -303,15 +303,27 @@ padding:5px;
 
 /* Media query for screens with a maximum width of 992px */
 @media (max-width: 992px) {
-  .intro h1 {
+  .intro h2 {
    font-size: 42px;
   }
  }
 
 /* Media query for screens with a maximum width of 768px */
 @media (max-width: 768px) {
- .intro h1 {
-  font-size: 40px;
+
+.header{
+    font-size: 15px;
+}
+
+ img {
+  width:300px
+ }
+ .winner h2{
+  font-size: 30px;
+ }
+
+ .score h2 {
+  font-size: 30px;
  }
 }
 
@@ -322,7 +334,67 @@ padding:5px;
   }
 
   img {
-    width:320px;
+    width:280px;
+  }
+
+  .score h2 {
+    font-size: 30px;
   }
  }
 
+/* Media query for screens with a maximum width of 480px */
+@media (max-width: 450px) {
+  h2 {
+    font-size: 15px;
+  }
+  
+  .intro h1 {
+   font-size: 30px;
+  }
+  
+  img{
+    width:200px;
+  }
+}
+
+/* Media query for screens with a maximum width of 417px */
+@media (max-width: 417px) {
+  h2 {
+    font-size:15px;
+  }
+  
+  .intro h1 {
+   font-size: 20px;
+  }
+  
+  img{
+    width:200px;
+  }
+
+  .score h2 {
+    font-size: 20px;
+  }
+  .winner {
+    font-size: 20px;
+  }
+}
+/* Media query for screens with a maximum width of 417px */
+@media (max-width: 380px) {
+  h2 {
+    font-size:15px;
+  }
+
+  img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 350px) {
+  h2 {
+    font-size:15px;
+  }
+
+  img {
+    width: 150px;
+  }
+}
