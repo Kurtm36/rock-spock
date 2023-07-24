@@ -16,6 +16,7 @@ The game features an extra 2 options to select from instead of the typical Rock 
      -   A Lets Play button which begins the game .
      -   A Tutorial Button which explains the rules and how each option works.
      -   A Reset button , which resets all the values to 0.
+     -   I used sa
 
 ![Opening Menu](/assets/images/opening-menu.png "Opening Menu")
 
@@ -23,6 +24,9 @@ The game features an extra 2 options to select from instead of the typical Rock 
 
 ![In game](/assets/images/in-game.png "In game")
 <hr>
+
+## Design
+
 
 ## When the Player is in game they can select from 5 options 
 
@@ -104,7 +108,7 @@ The winner is determined based on the rules above. If both you and your opponent
 
 The live link can be found here [Rock, Paper, Scissors, Lizard, Spock](https://kurtm36.github.io/rock-spock/)
 
-<hr>
+--- 
 
 ### Credits 
 
@@ -119,6 +123,7 @@ Through out the development of this programe I have referenced multiple learning
 ### Images 
 
 I found the majority of my images through google images and ClipArtMax.
+(https://www.clipartmax.com/)
 
 
 

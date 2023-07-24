@@ -2,6 +2,14 @@ let roundsPlayed = '0';
 let pScore = 0;
 let cScore = 0;
 let bonusRound = false;
+let soundMuted = true;
+
+const muteBtn = document.getElementById("mute");
+
+muteBtn.addEventListener("click", () => {
+  soundMuted = !soundMuted;
+  muteBtn.innerText = soundMuted ? "Unmute" : "Mute";
+});
 
 console.log(roundsPlayed);
 
@@ -49,7 +57,7 @@ const game = () => {
     const compareHands = (playerChoice, computerChoice) => {
       // Update text for Match result
       const winner = document.querySelector(".winner");
-      roundsPlayed++
+        roundsPlayed++;
       if (roundsPlayed % 5 === 0) {
         bonusRound = true;
         updateScore();
@@ -85,7 +93,9 @@ const game = () => {
     //Computer choice function
     options.forEach((option) => {
       option.addEventListener("click", function () {
-        option.setAttribute("disabled", true);
+        options.forEach((option) => {
+          option.setAttribute("disabled", true);
+        });
         playMusic();
         const computerNumber = Math.floor(Math.random() * 5);
         const computerChoice = computerOptions[computerNumber];
@@ -98,7 +108,9 @@ const game = () => {
           playerHand.alt = `Player got ${this.textContent}`;
           computerHand.src = `./assets/images/computer/${computerChoice}.png`;
           computerHand.alt = `Computer got ${computerChoice}`;
-          option.removeAttribute("disabled");
+          options.forEach((option) => {
+            option.removeAttribute("disabled");
+          });
 
         }, 2000);
 
@@ -176,14 +188,16 @@ const resetButton = document.querySelector('.reset-btn');
 
 const resetPage = () => {
   location.reload();
-}
+};
 
-resetButton.addEventListener('click', resetPage)
+resetButton.addEventListener('click', resetPage);
 
 
 //Audio
 
 function playMusic() {
- let audio = new Audio ("assets/sound/audio.mp3")
- audio.play()
+  let audio = new Audio ("assets/sound/audio.mp3");
+  if (!soundMuted){
+    audio.play();
+  }
 }
