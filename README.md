@@ -16,7 +16,7 @@ The game features an extra 2 options to select from instead of the typical Rock 
      -   A Lets Play button which begins the game .
      -   A Tutorial Button which explains the rules and how each option works.
      -   A Reset button , which resets all the values to 0.
-     -   I used sa
+
 
 ![Opening Menu](/assets/images/opening-menu.png "Opening Menu")
 
@@ -25,7 +25,32 @@ The game features an extra 2 options to select from instead of the typical Rock 
 ![In game](/assets/images/in-game.png "In game")
 <hr>
 
+
+## First time User Experences
+
+- As a first-time user, when you enter the game, you are greeted with a colorful and accesible interface.
+
+- As a first time user , you learn the outcomes of the additional options for future play with friends.
+
+- Provide a tutorial pop up incase some things aren't familiar for users of the program.  
+
+
 ## Design
+
+In style of the design of the program I wanted to keep its simple and fun. I went for a cartoony black white and green design with a fun font. 
+
+-  Header
+   -  Displayed at the top of the game is the title of the program
+    ![Header](/assets/images/header.png "Rock")
+
+- Options
+  - Displayed in the center of the screen is the options to pick for each round. 
+  - A reset button if the user wants to reset the game .
+  - A mute button if the user wants to turn off the audio.
+  - A tutorial button incase the player needs help with the rules.
+    ![Lets play btn](/assets/images/lets-btn.png "lets play btn")
+    ![unmute btn](/assets/images/unmute-btn.png "unmute button")
+
 
 
 ## When the Player is in game they can select from 5 options 
@@ -94,6 +119,9 @@ The winner is determined based on the rules above. If both you and your opponent
 
 - Issue with favicon not showing : Fixed this by removing the favicon from the assets folder.
 
+### Unsolved Bugs 
+- None as of yet.
+
 ### Validator testing 
 ---
 ### HTML
@@ -112,11 +140,10 @@ The winner is determined based on the rules above. If both you and your opponent
      - There are 28 functions in this file.
      -  Function with the largest signature take 2 arguments, while the median is 0.
      - Largest function has 18 statements in it, while the median is 2.
-     -  The most complex function has a cyclomatic complexity value of 19 while the median is 1.
+     -  The most complex function has a cyclomatic complexity value of 19     while the median is 1.
+   ![Jshint](/assets/images/jshint.png "Jshint")
         
-    ![Js Hint](/assets/images/jshint.png "Js hint")
-  
-
+    
 <br>
 
 ## Deployment 
@@ -124,11 +151,17 @@ The winner is determined based on the rules above. If both you and your opponent
 - The site was deployed to GitHub pages . The steps to deploy are as follows.
   - In the Github Repo , navigate to the setting tab.
   - From the source section drop-down menu select : Master branch
-  - Once the mast branch has been selected, the page provided the link to the completed website .
+  - Once the mast branch has been selected, the page provided the link to the completed website.
 
 The live link can be found here [Rock, Paper, Scissors, Lizard, Spock](https://kurtm36.github.io/rock-spock/)
 
 --- 
+
+### Mistakes
+
+I made mistakes  while committing changes. I used past simple tense in commits , and forgot about commits I did not push. In future with my commits I will be more specific with my language and commits in future .
+
+---
 
 ### Credits 
 
@@ -140,10 +173,17 @@ Through out the development of this programe I have referenced multiple learning
 
 [JavaScript ES6 Arrow Functions Tutorial by : Web Dev Simplefied](https://www.youtube.com/watch?v=h33Srr5J9nY) In this tutorial learned of the multiple use cases of Arrow functions .
 
-### Images 
-
 I found the majority of my images through google images and ClipArtMax.
 [ClipArtMax](https://www.clipartmax.com/)
+
+
+
+
+
+
+
+
+
 
 
 
