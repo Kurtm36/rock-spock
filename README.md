@@ -82,15 +82,16 @@ Spock :
 In this game, you can choose either Rock, Paper, Scissors, Lizard, or Spock. The computer also make a random selection. The rules for winning are as follows:
 
 - Rock crushes Scissors
-- Scissors cuts Paper
-- Paper covers Rock
 - Rock crushes Lizard
-- Lizard poisons Spock
-- Spock smashes Scissors
+- Scissors cuts Paper
 - Scissors decapitates Lizard
-- Lizard eats Paper
+- Paper covers Rock
 - Paper disproves Spock
+- Spock smashes Scissors
 - Spock vaporizes Rock
+- Lizard eats Paper
+- Lizard poisons Spock
+  
   
 The winner is determined based on the rules above. If both you and your opponent make the same choice, it's a tie, and the game will be played again.
 
@@ -118,7 +119,7 @@ The winner is determined based on the rules above. If both you and your opponent
 
 ### Solved Bugs
 
-- I encountered a bug where the rounds played were incrementing more than I needed it to . This was due to another varible incrementing I did not see .
+- I encountered a bug where the rounds played were incrementing more than I needed it to . This was due to the another varible incrementing It I did not see .
 
 - Issue with favicon not showing : Fixed this by removing the favicon from the assets folder.
 
