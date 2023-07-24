@@ -95,8 +95,12 @@ The winner is determined based on the rules above. If both you and your opponent
 - Issue with favicon not showing : Fixed this by removing the favicon from the assets folder.
 
 ### Validator testing 
+---
+### HTML
 
-
+- HTML
+  - No errors passing throught w3c validator.
+  - 
 <br>
 
 ## Deployment 
