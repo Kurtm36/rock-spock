@@ -201,3 +201,12 @@ function playMusic() {
     audio.play();
   }
 }
+
+document.addEventListener("keyup", (e) => {
+  const modals = document.querySelectorAll(".modal.active");
+  if (e.key == "Escape"){
+    modals.forEach((modal) => {
+      closeModal(modal);
+    });
+  }
+});
