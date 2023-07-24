@@ -99,8 +99,24 @@ The winner is determined based on the rules above. If both you and your opponent
 ### HTML
 
 - HTML
-  - No errors passing throught w3c validator.
-  - 
+  - No errors passing through w3c validator.
+   ![HTML checker](/assets/images/html-checker.png "Nu HTML checker")
+
+- CSS
+  - No erros passing through w3c css validator 
+   ![CSS checker](/assets/images/css-checker.png "Css Checker")
+
+- JS
+   - All the warnings I recived were relating to jshints es-version not being   version 6
+   - Metrics :
+     - There are 28 functions in this file.
+     -  Function with the largest signature take 2 arguments, while the median is 0.
+     - Largest function has 18 statements in it, while the median is 2.
+     -  The most complex function has a cyclomatic complexity value of 19 while the median is 1.
+        
+    ![Js Hint](/assets/images/jshint.png "Js hint")
+  
+
 <br>
 
 ## Deployment 
