@@ -48,9 +48,12 @@ In style of the design of the program I wanted to keep its simple and fun. I wen
   - A reset button if the user wants to reset the game .
   - A mute button if the user wants to turn off the audio.
   - A tutorial button incase the player needs help with the rules.
-    ![Lets play btn](/assets/images/lets-btn.png "lets play btn")
+    
     ![unmute btn](/assets/images/unmute-btn.png "unmute button")
 
+    ![Lets play btn](/assets/images/lets-btn.png "lets play btn")
+    
+    ![unmute btn](/assets/images/options-btn.png "unmute button")
 
 
 ## When the Player is in game they can select from 5 options 
